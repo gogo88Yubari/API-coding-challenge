@@ -15,7 +15,7 @@ class ListBuild extends Component {
         axios.get("https://itk-exam-api.herokuapp.com/api/offices")
             .then(response => {
                 // console.log(response.data)
-                this.setState({ newData: response.data.slice(0, 4) })
+                this.setState({ newData: response.data.slice(0, 3) })
             })
     }
 

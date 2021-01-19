@@ -1,0 +1,24 @@
+.GridItem {
+    width: 250px;
+    height: 250px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 16px 5px;
+    box-sizing: border-box;
+    background-color: #d8e2dc;
+    overflow: hidden
+}
+
+.GridItem img {
+    width: 30%
+}
+
+.GridItem h1, .GridItem p{
+    margin: 0;
+    padding: 5px;
+    font-size: 0.8em
+  }
+
+  

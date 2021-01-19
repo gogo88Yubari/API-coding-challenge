@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import Aux from "../../hoc/Auxiliary";
 import axios from "axios";
 
 import GridItem from "../../components/GridItem/GridItem"
+import classes from "./GridBuild.css"
+
 
 
 
@@ -15,7 +16,7 @@ class GridBuild extends Component {
         axios.get("https://itk-exam-api.herokuapp.com/api/offices")
             .then(response => {
                 // console.log(response.data)
-                this.setState({ newData: response.data.slice(0, 8) })
+                this.setState({ newData: response.data })
             })
     }
 
@@ -30,9 +31,9 @@ class GridBuild extends Component {
             )
         })
         return (
-            <Aux>
+            <section className={classes.GridBuild}>
                 { loadGridData}
-            </Aux>
+            </section>
 
         );
     }

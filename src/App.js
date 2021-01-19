@@ -17,7 +17,7 @@ class App extends Component {
               to="/"
               exact
               activeClassName="activeStyle"
-              activeStyle={{ color: "white" }}>LINK</NavLink></li>
+              activeStyle={{ color: "white" }}>LIST</NavLink></li>
             <li><NavLink
               to="/grid"
               exact
