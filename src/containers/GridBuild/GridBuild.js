@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import GridItem from "../../components/GridItem/GridItem"
-import classes from "./GridBuild.css"
+import GridItem from "../../components/GridItem/GridItem";
+import classes from "./GridBuild.css";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 
 
 
 class GridBuild extends Component {
     state = {
-        newData: []
+        newData: [],
+        error: false
     };
 
     componentDidMount() {
@@ -18,22 +20,29 @@ class GridBuild extends Component {
                 // console.log(response.data)
                 this.setState({ newData: response.data })
             })
+            .catch(error => {
+                // console.log(error)
+                this.setState({ error: true })
+            });
     }
 
     render() {
-        const loadGridData = this.state.newData.map(e => {
-            return (
-                <GridItem
-                    key={e.id}
-                    photo={e.photo}
-                    name={e.name}
-                    description={e.description} />
-            )
-        })
+        let loadGridData = this.state.error ?
+            <h1 style={{ textAlign: "center" }} > Error 404</h1 >
+            : this.state.newData.map(e => {
+                return (
+                    <GridItem
+                        key={e.id}
+                        photo={e.photo}
+                        name={e.name}
+                        description={e.description} />
+                )
+            })
         return (
-            <section className={classes.GridBuild}>
-                { loadGridData}
-            </section>
+            !this.state.newData ? <Spinner /> :
+                <section className={classes.GridBuild}>
+                    {loadGridData}
+                </section>
 
         );
     }

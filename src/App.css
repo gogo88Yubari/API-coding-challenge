@@ -21,8 +21,21 @@
   text-decoration: none;
   color: black;
   font-weight: 700;
+  font-size: 1.2em;
 }
 
 .App a:hover {
   color: gray;
+}
+
+@media(max-width: 318px){
+  .App li {
+    display: block;
+    margin: auto;
+  }
+  .App a {
+    color: black;
+    font-weight: 400;
+    font-size: 0.8em;
+  }
 }
